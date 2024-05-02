@@ -31,7 +31,7 @@
 * Create local manifests, e.g. by checking out a copy of this project and symlinking the files from the appropriate folder according to the LineageOS version used:
 
     ```bash
-    git clone https://github.com/Flamefire/lineageos_lilac.git
+    git clone https://github.com/antoniu200/lineageos_lilac.git
     mkdir .repo/local_manifests
     cd .repo/local_manifests
     ln -s ../../lineageos_lilac/manifests/17.1/*.xml .
