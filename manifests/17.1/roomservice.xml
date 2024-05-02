@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- SONY -->
-    <project name="Flamefire/android_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" revision="lineage-17.1" />
+    <project name="Flamefire/android_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" revision="d12ea4497cca324b2761e75c20e6530235f0aa7f" />
     <project name="Flamefire/android_device_sony_yoshino-common" path="device/sony/yoshino-common" remote="github" revision="lineage-17.1" />
     <project name="Flamefire/android_device_sony_lilac" path="device/sony/lilac" remote="github" revision="lineage-17.1" />
 
