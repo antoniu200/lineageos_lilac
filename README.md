@@ -48,6 +48,7 @@
     ```bash
     cd device/sony/lilac
     ./extract-files.sh /path/to/dumped/firmware
+    cd -
     ```
 
     We currently use the latest Sony stock, which is `47.2.A.11.228`, so the file will be named like `G8441_*_47.2.A.11.228-*`.
