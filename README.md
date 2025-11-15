@@ -25,7 +25,7 @@
     repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
     ```
 
-* Create local manifests, e.g. by checking out a copy of this project and symlinking the files from the appropriate folder according to the LineageOS version used:
+* Create local manifests:
 
     ```bash
     git clone https://github.com/antoniu200/lineageos_lilac.git
@@ -39,12 +39,6 @@
 
     ```bash
     repo sync
-    ```
-
-* Tell git about Change-Id trailers
-
-    ```bash
-    git config --global --get-regexp 'trailer\.' | grep -qF 'Change-Id' || git config --global trailer.changeid.key "Change-Id"
     ```
 
 ### Build procedure
