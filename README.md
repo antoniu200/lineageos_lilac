@@ -7,15 +7,15 @@
 * Make a workspace:
 
     ```bash
-    mkdir -p ~/lineageos
-    cd ~/lineageos
+    mkdir -p ~/lineage
+    cd ~/lineage
     ```
 
     Or use a subfolder for a specific version of LineageOS in a root folder, e.g.
 
     ```bash
-    mkdir -p /lineageos/repo17
-    cd /lineageos/repo17
+    mkdir -p /lineage/17.1
+    cd /lineage/17.1
     ```
 
 * Initialize the repo:
@@ -25,10 +25,7 @@
     repo init -u https://github.com/LineageOS/android.git -b lineage-17.1
     ```
 
-    Instead of `lineage-17.1` one can also use `lineage-18.1` or `lineage-19.1`
-    for a different LineageOS version.
-
-* Create local manifests, e.g. by checking out a copy of this project and symlinking the files from the appropriate folder according to the LineageOS version used:
+* Create local manifests:
 
     ```bash
     git clone https://github.com/antoniu200/lineageos_lilac.git
@@ -44,30 +41,7 @@
     repo sync
     ```
 
-* Tell git about Change-Id trailers
-
-    ```bash
-    git config --global --get-regexp 'trailer\.' | grep -qF 'Change-Id' || git config --global trailer.changeid.key "Change-Id"
-    ```
-
 ### Build procedure
-
-* Get newer Clang compiler(s)
-
-    LineageOS 17 & 18 **only**!
-    Skip this step when building a newer LineageOS.
-
-    For better performance/battery life, we use a newer version of the Clang compiler.
-    So e.g. for the kernel you need to get the folder `r416183b1` (at the time of writing) into `prebuilts/clang/host/linux-x86`.
-    You can check other branches (e.g. for `r416183b1` the branch is `android-12.1.0_r22`) and checkout only that folder or otherwise copy or symlink it from anywhere into `prebuilts/clang/host/linux-x86`.
-
-    To simplify/automate this you can copy/symlink the [clang-update-17.1.xml](manifests/clang-update-17.1.xml) manifest to your `.repo/local_manifests` (or the corresponding [file for LOS 18](manifests/clang-update-18.1.xml)) and do another `repo sync`.
-    
-    The `make` below will abort with a more or less descriptive error if you miss this, so just try.
-
-    This also requires applying at least the new Clang patches below (`--minclang` option).
-    
-    Alternatively you can comment out the `TARGET_KERNEL_CLANG_VERSION :=` line in `device/sony/yoshino-common/BoardConfigPlatform.mk`.
 
 * Copy [dumped firmware blobs](dump-stock.md) into place for the build
 
