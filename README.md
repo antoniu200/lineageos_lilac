@@ -81,6 +81,7 @@
     ```
 
 * Choose the device you're building for
+
     G8441:
     ```bash
     lunch lineage_lilac-userdebug
