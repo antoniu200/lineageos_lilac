@@ -78,7 +78,17 @@
 
     ```bash
     source build/envsetup.sh
+    ```
+
+* Choose the device you're building for
+    G8441:
+    ```bash
     lunch lineage_lilac-userdebug
+    ```
+
+    SO-02K:
+    ```bash
+    lunch lineage_lilac_dcm-userdebug
     ```
 
 * Build LineageOS
