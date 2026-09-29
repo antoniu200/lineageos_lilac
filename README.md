@@ -53,25 +53,13 @@
 
     We currently use the latest Sony stock, which is `47.2.A.11.228`, so the file will be named like `G8441_*_47.2.A.11.228-*`.
 
-* (Semi-)optionally apply patches
+* Apply patches
 
     Some of the patches in this repo fix a few bugs or issues in LineageOS while others make the build deviate a lot from the "vanilla build".
     So this is only for advanced users!
 
     ```bash
     device/sony/lilac/patches/applyPatches.sh
-    ```
-
-    To apply only the minimal (required & security fix) patches:
-
-    ```bash
-    device/sony/lilac/patches/applyPatches.sh --minimal
-    ```
-
-    To apply only the minimal & new Clang patches:
-
-    ```bash
-    device/sony/lilac/patches/applyPatches.sh --minclang
     ```
 
 * Setup the environment
