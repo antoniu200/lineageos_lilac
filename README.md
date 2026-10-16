@@ -45,10 +45,14 @@
 
 * Copy [dumped firmware blobs](dump-stock.md) into place for the build
 
+    G8441:
     ```bash
-    cd device/sony/lilac
-    ./extract-files.sh /path/to/dumped/firmware
-    cd -
+    device/sony/lilac/extract-files.sh /path/to/dumped/firmware
+    ```
+    
+    SO-02K:
+    ```bash
+    device/sony/lilac/extract-files.sh --dcm /path/to/dumped/firmware
     ```
 
     We currently use the latest Sony stock, which is `47.2.A.11.228`, so the file will be named like `G8441_*_47.2.A.11.228-*`.
@@ -79,6 +83,10 @@
     ```bash
     lunch lineage_lilac_dcm-userdebug
     ```
+
+development/vndk/tools/header-checker/utils/create_reference_dumps.py -l libcutils -products lineage_lilac
+bash build_gms_module.sh vendor/litegapps/core/litegapps/core/gapps/arm64/32/system vendor/gms --force
+
 
 * Build LineageOS
 
