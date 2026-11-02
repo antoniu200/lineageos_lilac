@@ -59,9 +59,6 @@
 
 * Apply patches
 
-    Some of the patches in this repo fix a few bugs or issues in LineageOS while others make the build deviate a lot from the "vanilla build".
-    So this is only for advanced users!
-
     ```bash
     device/sony/lilac/patches/applyPatches.sh
     ```
@@ -84,7 +81,11 @@
     lunch lineage_lilac_dcm-userdebug
     ```
 
-development/vndk/tools/header-checker/utils/create_reference_dumps.py -l libcutils -products lineage_lilac
+* Tell VNDK we're expanding `libcutils` (1st build only):
+    ```bash
+    development/vndk/tools/header-checker/utils/create_reference_dumps.py -l libcutils -products lineage_lilac
+    ```
+
 bash build_gms_module.sh vendor/litegapps/core/litegapps/core/gapps/arm64/32/system vendor/gms --force
 
 
