@@ -62,6 +62,32 @@
     ```bash
     device/sony/lilac/patches/applyPatches.sh
     ```
+    
+* (Optional) Integrate BakaSU v4.2.0-rc3:
+
+    More info [here](https://github.com/JackA1ltman/NonGKI_Kernel_Build_2nd/wiki/en-Embedding-KernelSU-and-Patching-SUSFS).
+
+    ```bash
+    cd kernel/sony
+
+    git clone https://github.com/JackA1ltman/NonGKI_Kernel_Build_2nd.git NonGKI_Kernel_Build_2nd
+    git -C NonGKI_Kernel_Build_2nd checkout 1790218829
+
+    cd msm8998
+
+    cp ../NonGKI_Kernel_Build_2nd/Bin/clean_hook.sh ./
+    cp ../NonGKI_Kernel_Build_2nd/Patches/susfs_inline_hook_patches.sh ./
+    cp ../NonGKI_Kernel_Build_2nd/Patches/Patch/susfs_patch_to_4.4.patch ./
+
+    bash clean_hook.sh
+    git clone https://github.com/Baka-SU/BakaSU.git KernelSU
+    git -C KernelSU checkout v4.2.0-rc3
+    curl -LSs https://raw.githubusercontent.com/Baka-SU/BakaSU/refs/tags/v4.2.0-rc3/kernel/setup.sh | bash -s v4.2.0-rc3
+    bash susfs_inline_hook_patches.sh
+    patch -p1 < susfs_patch_to_4.4.patch
+
+    sed -i '188s/&flags/\&flag/' fs/stat.c
+    ```
 
 * Setup the environment
 
@@ -84,9 +110,6 @@
 * Tell VNDK we're expanding `libcutils` (1st build only):
     ```bash
     development/vndk/tools/header-checker/utils/create_reference_dumps.py -l libcutils -products lineage_lilac
-    ```
-
-bash build_gms_module.sh vendor/litegapps/core/litegapps/core/gapps/arm64/32/system vendor/gms --force
 
 
 * Build LineageOS
