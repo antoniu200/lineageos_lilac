@@ -110,7 +110,7 @@
 * Tell VNDK we're expanding `libcutils` (1st build only):
     ```bash
     development/vndk/tools/header-checker/utils/create_reference_dumps.py -l libcutils -products lineage_lilac
-
+    ```
 
 * Build LineageOS
 
